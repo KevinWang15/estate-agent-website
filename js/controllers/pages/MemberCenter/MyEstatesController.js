@@ -4,6 +4,9 @@ angular.module("estateAgent.controllers")
         $scope.totalItems = 0;
         $scope.currentPage = 1;
 
+        $scope.$window = window;
+
+
         $scope.conditionChoices = ["全新房", "毛坯房", "2年以下房龄", "5年以下房龄", "5-10年房龄", "10年以上房龄"];
         $scope.formShown = false;
         $scope.formData = {};

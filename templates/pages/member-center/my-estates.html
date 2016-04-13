@@ -1,6 +1,9 @@
 <div ng-controller="MyEstatesController" class="page-my-estates">
 
-    <button ng-click="showNewEstate()" ng-hide="formShown" class="btn btn-primary"
+    <span style="position: absolute;right: 0;color: #c00;top:56px" ng-if="!$window.user.seller.verified">
+        未通过资质认证的发布者暂时不能发布房产，请先联系中介进行认证
+    </span>
+    <button ng-click="showNewEstate()" ng-if="$window.user.seller.verified" ng-hide="formShown" class="btn btn-primary"
             style="position: absolute;right: 20px;top:28px">
         <i class="fa fa-plus"></i> 添加
     </button>
@@ -64,7 +67,7 @@
                 </div>
             </div>
             <!--<pre>-->
-                <!--{{formData|json}}-->
+            <!--{{formData|json}}-->
             <!--</pre>-->
         </form>
 
