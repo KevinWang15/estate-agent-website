@@ -1,0 +1,1 @@
+window.API_BASE = "http://139.196.50.217:7001/api/";

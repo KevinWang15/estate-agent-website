@@ -1,0 +1,101 @@
+<div class="content page-estate-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4" ng-if="!!estate">
+                <img style="width: 100%;" ng-src="img/estates/{{estate.id%6+1}}.jpg"
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                <h1>
+                    {{estate.city}} {{estate.district}},
+                    <small>{{estate.condition}}</small>
+
+                </h1>
+                <p class="description">
+                    {{estate.description}}
+                </p>
+                <p>{{estate.city}} {{estate.district}} {{estate.zone}} {{estate.neighborhood}} {{estate.room}}</p>
+                <p class="price" style="color: #C00">
+                    {{["售价","月租"][+estate.is_for_rent]}}
+
+                    <span class="currency" ng-bind-html="estate.price|humanize_price"></span>
+                </p>
+
+                <div class="block" style="margin-top: 100px;" ng-if="!!seller">
+                    <h2 class="title-divider">
+                        <span><span class="de-em">卖家档案</span></span>
+                    </h2>
+                    <div class="row" style="cursor: pointer" ui-sref="index.seller-detail({id:seller.user_id})">
+                        <div class="col-sm-4">
+                            <img style="width: 80px;height: 80px;border-radius: 50%;margin-top: 10px;"
+                                 ng-src="img/avatars/{{(seller.user.id % 12)+1}}.jpg"
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                 alt="">
+                        </div>
+                        <div class="col-sm-8 seller-profile">
+                            <h4>
+                                {{seller.user.name}}
+                            </h4>
+                            <p>
+                                {{seller.user.email}}
+                            </p>
+                            <p>No: {{seller.id_card_num}}</p>
+                            <p>
+                                电话号码请询中介
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-8" ng-if="!!agents">
+                <div class="block">
+                    <h2 class="title-divider">
+                        <span><span class="de-em">预约</span>看房</span>
+                    </h2>
+                </div>
+                <div>
+                    <p class="agentsCount">
+                        为您找到了{{agents.length}}位负责本房产的中介，他们随时愿意为您服务
+                    </p>
+                    <div>
+                        <div ng-repeat="agent in agents" class="agent-wrapper row" ng-click="newProposal(agent)">
+                            <div class="col-sm-2 col" style="text-align: center;">
+                                <img style="width: 100px;height: 100px;border-radius: 50%;margin-top: 16px;margin-bottom: 12px;border:1px solid #C00"
+                                     ng-src="img/avatars/{{(agent.user_id % 12)+1}}.jpg"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                     alt="">
+                                <button class="btn btn-primary-outline" style="border-radius: 4px;margin-left: 6px;"
+                                        ng-click="showAgentDetail(agent.user_id,$event)">
+                                    查看详情
+                                </button>
+                            </div>
+                            <div class="col-sm-10 col" style="height: 100%;margin-top: 14px;margin-bottom: 10px;">
+                                <h1 style="position: relative">
+                                    {{agent.user.name}}
+                                    <small style="position: absolute;right: 0">
+                                        机构: {{agent.title}}
+                                    </small>
+                                </h1>
+                                <p class="description" style="height: 80px;">
+                                    {{agent.description}}
+                                </p>
+                                <p>
+                                    <span class="key">邮箱: </span>
+                                    <span class="value">{{agent.user.email}}</span>
+                                </p>
+                                <p>
+                                    <span class="key">电话: </span>
+                                    <span class="value">{{agent.user.mobile}}</span>
+                                </p>
+                                <p class="price">
+                                    中介费用
+                                <span class="currency" ng-bind-html="agent.fee|humanize_price">
+                                </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

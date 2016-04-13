@@ -1,0 +1,32 @@
+<div style="padding: 30px">
+    <table class="table-bordered table table-striped table-hover">
+        <thead>
+        <td>
+            手机号
+        </td>
+        <td>
+            默认密码
+        </td>
+        <td>
+            姓名
+        </td>
+        <td>
+            角色
+        </td>
+        </thead>
+        <tr ng-repeat="item in list">
+            <td>
+                {{item.mobile}}
+            </td>
+            <td>
+                123
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{['接受者','提供者','中介'][+item.user_type]}}
+            </td>
+        </tr>
+    </table>
+</div>

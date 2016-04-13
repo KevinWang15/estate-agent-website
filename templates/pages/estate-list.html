@@ -1,0 +1,157 @@
+<div class="content page-estate-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="block">
+                    <h2 class="title-divider">
+                        <span>
+                            <span class="de-em">筛选</span>条件
+                        </span>
+                    </h2>
+                </div>
+
+                <div class="form-group filter-by-location">
+                    <label>按地域</label>
+                    <zone-select result="filters"></zone-select>
+                </div>
+                <div class="form-group">
+                    <label>关键字</label>
+                    <input type="text" placeholder="(可选)按照关键字搜索" class="form-control" ng-model="filters.keyword">
+                </div>
+                <div class="form-group">
+                    <label>价格范围</label>
+                    <div class="row">
+                        <div class="col col-xs-5">
+                            <input ng-model="filters.priceLow" type="text" class="form-control" placeholder="(可选)最低价格">
+                        </div>
+                        <div class="col col-xs-2" style="text-align: center;padding-top: 6px;">
+                            至
+                        </div>
+                        <div class="col col-xs-5">
+                            <input ng-model="filters.priceHigh" type="text" class="form-control" placeholder="(可选)最高价格">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>方式</label>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.type" value="0">
+                            不限
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.type" value="1">
+                            出租
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.type" value="2">
+                            出售
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>按照价格排序</label>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.sortByPrice" value="0">
+                            无排序
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.sortByPrice" value="1">
+                            升序
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.sortByPrice" value="2">
+                            降序
+                        </label>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label>房屋属性</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="filters.condition" value="">
+                            显示全部
+                        </label>
+                    </div>
+                    <div class="radio" ng-repeat="condition in filterChoices.conditions">
+                        <label>
+                            <input type="radio" ng-model="filters.condition" value="{{condition}}">
+                            {{condition}}
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" ng-click="applyFilter()">
+                        <i class="fa fa-check"></i> 确认所有筛选项
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-xs-8">
+                <div>
+                    <p class="estatesCount" ng-hide="estates==null">
+                        当前筛选条件下共有{{totalItems}}个房产
+                    </p>
+                    <div>
+                        <div ng-repeat="estate in estates" class="estate-wrapper row"
+                             ui-sref="index.estate-detail({id:estate.id})">
+                            <div class="col-sm-2 col">
+                                <img style="width: 100px;height: 100px;margin-top: 30px;"
+                                     ng-src="img/estates/{{estate.id%6+1}}.jpg" alt="">
+                            </div>
+                            <div class="col-sm-10 col" style="margin-top: 14px;margin-bottom: 10px;">
+                                <h1>
+                                    {{estate.city}} {{estate.district}}
+                                    <small>
+                                        {{estate.condition}}
+
+                                    </small>
+                                    <small class="price" style="position: absolute;right: 0">
+                                        {{["售价","月租"][+estate.is_for_rent]}}
+                                        <span class="currency" ng-bind-html="estate.price|humanize_price">
+                                        </span>
+                                    </small>
+                                </h1>
+                                <p>
+                                    {{estate.city}} {{estate.district}} {{estate.zone}} {{estate.neighborhood}}
+                                    {{estate.room}}
+                                </p>
+                                <p class="description">
+                                    {{estate.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="estates.length==0"
+                     style="color:#C00;padding: 50px 10px;border:2px solid; border-radius:20px;margin:10px 4px;font-size: 30px;text-align: center;line-height: 1.5em">
+                    没有符合条件的结果
+                    <br/>
+                    换个搜索条件试试
+                </div>
+
+                <uib-pagination ng-hide="estates==null || estates.length==0" ng-change="pageChanged()"
+                                items-per-page="6"
+                                boundary-links="false" boundary-link-numbers="true" total-items="totalItems"
+                                ng-model="currentPage" class="pagination-sm" rotate="true" max-size="12"
+                                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                                last-text="&raquo;"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

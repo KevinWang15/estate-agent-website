@@ -1,0 +1,84 @@
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col">
+                <div class="block newsletter">
+                    <h3>
+                        订阅更新
+                    </h3>
+                    <p>输入您的邮箱以订阅我们的最新动态</p>
+                    <!--@todo: replace with mailchimp code-->
+                    <form role="form">
+                        <div class="input-group input-group-sm">
+                            <label class="sr-only" for="email-field">Email</label>
+                            <input type="text" class="form-control" id="email-field" ng-model="formData.email"
+                                   placeholder="Email">
+                              <span class="input-group-btn">
+                                <button class="btn btn-primary" ng-click="subscribe()" type="button">提交</button>
+                              </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="block">
+                    <h3>
+                        关于我们
+                    </h3>
+                    <p>
+                        搜房网 (Fang.dummy) 是 14307130048 王轲 做的数据库期末PJ，山寨了有名的搜房网（www.fang.com），本网站一切信息均属虚构，听信虚假信息造成的损失我们将不予承担.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col">
+                <div class="block contact-block">
+                    <h3>
+                        联系方式
+                    </h3>
+                    <address>
+                        <ul class="fa-ul">
+                            <li>
+                                <abbr title="Phone"><i class="fa fa-li fa-phone"></i></abbr>
+                                021-66666666
+                            </li>
+                            <li>
+                                <abbr title="Email"><i class="fa fa-li fa-envelope"></i></abbr>
+                                info@fang.dummy
+                            </li>
+                            <li>
+                                <i class="fa fa-li fa-home"></i>
+                                <p>
+                                    上海市 浦东新区
+                                </p>
+                                <p>
+                                    世纪大道1号 4楼A座
+                                </p>
+                            </li>
+                        </ul>
+                    </address>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div id="toplink" class="hidden-xs">
+                <a ng-click="scrollTop()" class="top-link" title="Back to top">回到顶部 <i class="fa fa-chevron-up"></i></a>
+            </div>
+            <!--@todo: replace with company copyright details-->
+            <div class="subfooter">
+                <div class="col-xs-12">
+                    <p>2016 © 14307130048 王轲</p>
+                </div>
+                <div class="col-xs-6" style="text-align: right">
+                    <ul class="list-inline footer-menu">
+                        <!--<li><a ui-sref="index.terms">服务条款</a></li>-->
+                        <!--<li><a ui-sref="index.aboutUs">关于我们</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,65 @@
+<div>
+    <div style="line-height: 40px;">
+        <div class="btn-group" uib-dropdown>
+            <button class="btn btn-primary-outline" uib-dropdown-toggle>
+                {{result.city||"选择城市"}}
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+                <li>
+                    <a ng-click="chooseCity()">清空</a>
+                </li>
+                <li ng-repeat="choice in choices.cities">
+                    <a ng-click="chooseCity(choice)">{{choice}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <i class="fa fa-chevron-right" ng-if="!!result.city"></i>
+
+        <div class="btn-group" uib-dropdown ng-if="!!result.city">
+            <button class="btn btn-primary-outline" uib-dropdown-toggle>
+                {{result.district||"选择行政区"}}
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+                <li>
+                    <a ng-click="chooseDistrict()">清空</a>
+                </li>
+                <li ng-repeat="choice in choices.districts[result.city]">
+                    <a ng-click="chooseDistrict(choice)">{{choice}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <i class="fa fa-chevron-right" ng-if="!!result.district"></i>
+
+        <div class="btn-group" uib-dropdown ng-if="!!result.district">
+            <button class="btn btn-primary-outline" uib-dropdown-toggle>
+                {{result.zone||"选择商圈"}}
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+                <li>
+                    <a ng-click="chooseZone()">清空</a>
+                </li>
+                <li ng-repeat="choice in choices.zones">
+                    <a ng-click="chooseZone(choice)">{{choice}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <i class="fa fa-chevron-right" ng-if="!!result.zone"></i>
+
+        <div class="btn-group" uib-dropdown ng-if="!!result.zone">
+            <button class="btn btn-primary-outline" uib-dropdown-toggle>
+                {{result.neighborhood||"选择小区"}}
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+                <li>
+                    <a ng-click="chooseNeighbourhood()">清空</a>
+                </li>
+                <li ng-repeat="choice in choices.neighborhoods">
+                    <a ng-click="chooseNeighborhood(choice)">{{choice}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

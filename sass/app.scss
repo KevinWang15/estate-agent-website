@@ -1,0 +1,157 @@
+body {
+  overflow-y: scroll;
+}
+
+body.modal-open {
+  overflow-y: scroll !important;
+}
+
+@mixin set-transition {
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+}
+
+@import "import/**/*.scss";
+
+.bds_weixin, .bds_qzone, .bds_tsina, .bds_renren, .bds_tqq, .bds_linkedin {
+  display: inline-block !important;
+  float: none !important;
+}
+
+.bd_weixin_popup_foot {
+  font-size: 11px !important;
+}
+
+#bdshare_weixin_qrcode_dialog {
+  height: 300px !important;
+}
+
+.bdsharebuttonbox {
+  a {
+    margin: 6px 3px !important;
+  }
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  overflow-y: scroll;
+}
+
+.title-divider span {
+  padding-right: 0;
+}
+
+.navbar-static-top {
+  position: fixed;
+  width: 100%;
+}
+
+#navigation {
+  height: 98px;
+  @media (max-width: 768px) {
+    height: 108px;
+  }
+}
+
+.fa-angle-right-nudge-up {
+  margin-top: -10px;
+}
+
+.appMain {
+  position: relative;
+  left: 0;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.menuOpened {
+  position: relative;
+  left: -250px;
+}
+
+.btn-primary-outline {
+  color: #c00;
+  background: white;
+  border: 1px solid #c00;
+  &:hover, &:active {
+    color: #c00 !important;
+    background: #fafafa;
+    box-shadow: none;
+  }
+  &:focus {
+    color: #c00 !important;
+  }
+}
+
+.btn {
+  .fa {
+    position: relative;
+    top: -1px;
+  }
+}
+
+.last-submit-info {
+  color: white;
+  background-color: #c00;
+  padding: 10px;
+  margin-bottom: 10px;
+  .fa {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.input-group {
+  margin-bottom: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .section-menu ul.nav-list, .page-member-center {
+    padding-top: 0 !important
+  }
+  .page-member-center .nav-list {
+    padding: 0 !important;
+  }
+}
+
+.loader {
+  position: absolute;
+  right: 34px;
+  top: 56px;
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.btn-primary:active, .btn-primary:focus {
+  background-color: #800 !important;
+  border-color: #500 !important;
+}

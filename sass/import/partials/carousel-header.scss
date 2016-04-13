@@ -1,0 +1,21 @@
+.carousel-header {
+
+  .carousel-image {
+    width: 100% !important;
+    height: 40vw !important;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-image {
+      height: 30vw !important;
+      object-fit: cover;
+    }
+  }
+  @media (min-width: 992px) {
+    .carousel-image {
+      height: 20vw !important;
+      object-fit: cover;
+    }
+  }
+}

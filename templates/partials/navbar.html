@@ -1,0 +1,63 @@
+<div id="navigation" class="wrapper">
+    <div class="navbar-static-top">
+
+        <div class="header">
+            <div class="header-inner container">
+                <div class="navbar">
+                    <div class="pull-left">
+                        <a class="navbar-brand" ui-sref="index.welcome" title="Home">
+                            <h1>
+                                搜房网
+                            </h1>
+                        </a>
+                        <div class="slogan">Fang.dummy</div>
+                    </div>
+
+
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+
+
+                            <li class="dropdown" ng-if="account.hasToken()">
+                                <a ng-click="logout()" class="dropdown-toggle"
+                                   data-hover="dropdown" style="font-size:18px">登出</a>
+                            </li>
+
+                            <li class="dropdown" ng-if="account.hasToken()">
+                                <a ng-click="gotoMemberCenter()" class="dropdown-toggle"
+                                   data-hover="dropdown" style="font-size:18px">会员中心</a>
+                            </li>
+
+                            <li class="dropdown" ng-if="!account.hasToken()" style="margin-right: 16px;">
+                                <a ui-sref="index.signup" class="dropdown-toggle"
+                                   data-hover="dropdown"
+                                   style="font-size:18px;padding: 18px 2px;display: inline-block">注册</a>
+                                <span style="display: inline-block;color: grey">/</span>
+                                <a ui-sref="index.login" class="dropdown-toggle"
+                                   data-hover="dropdown"
+                                   style="font-size:18px;padding: 18px 2px 18px 2px;display: inline-block">登入</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a ui-sref="index.estate-list()" class="dropdown-toggle"
+                                   data-hover="dropdown" style="font-size:18px">所有房产</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" style="padding: 18px 0">
+                                    {{$window.user.name}}
+                                    <span ng-if="$window.user.user_type==1">
+                                        （房产提供者）
+                                    </span>
+                                    <span ng-if="$window.user.user_type==2">
+                                        （中介）
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

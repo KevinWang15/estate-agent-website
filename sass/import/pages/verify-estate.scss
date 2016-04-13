@@ -1,0 +1,46 @@
+.page-verify-estate {
+
+  .item-wrapper {
+    cursor: pointer;
+    position: relative;
+    @include set-transition;
+
+    &:hover {
+      background: #c00;
+      color: white;
+      .currency {
+        @include set-transition;
+        font-size: 30px;
+        color: #FFF;
+      }
+
+      h1 {
+        small {
+          color: white;
+        }
+      }
+    }
+
+    padding: 6px 10px;
+    border: 1px solid #c00;
+    margin-bottom: -1px;
+    margin-left: -1px;
+    h1 {
+      position: relative;
+      font-size: 22px;
+      margin-top: 6px;
+      small {
+        @include set-transition;
+        font-size: 0.8em;
+      }
+    }
+    .description {
+      max-height: 90px;
+    }
+  }
+  .currency {
+    @include set-transition;
+    font-size: 30px;
+    color: #c00;
+  }
+}

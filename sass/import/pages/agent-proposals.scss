@@ -1,0 +1,58 @@
+.page-agent-proposals {
+  .item-wrapper {
+    cursor: pointer;
+    position: relative;
+    @include set-transition;
+
+    .emphasize {
+      @include set-transition;
+      color: #c00;
+    }
+
+    &:hover {
+      background: #c00;
+      color: white;
+
+      .emphasize {
+        color: white;
+      }
+
+      h1 {
+        small {
+          color: white;
+        }
+      }
+      .price {
+        .currency {
+          color: white !important;
+        }
+      }
+    }
+
+    padding: 6px 10px;
+    border: 1px solid #c00;
+    margin-bottom: -1px;
+    margin-left: -1px;
+    h1 {
+      position: relative;
+      font-size: 22px;
+      margin-top: 6px;
+      small {
+        @include set-transition;
+        font-size: 0.8em;
+      }
+    }
+    .description {
+      max-height: 90px;
+    }
+    .price {
+      padding-right: 20px;
+      width: 100%;
+      .currency {
+        @include set-transition;
+        font-size: 30px;
+        color: #c00;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<div class="content page-member-center">
+    <div class="container" id="member-center">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-class="{'active':activePage==$index}"
+                            ng-if="(page.user_type==null || +$window.user.user_type==+page.user_type)"
+                            ng-repeat="page in pages">
+                            <a ng-click="setActivePage($index)" class="first">
+                                {{page.title}}
+                                <small>{{page.subtitle}}</small>
+                                <i class="fa fa-angle-right"
+                                   ng-class="{'fa-angle-right-nudge-up':(!page.subtitle)}"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9 mainForm" ng-repeat="page in pages"
+                 ng-if="activePage==$index && (page.user_type==null || +$window.user.user_type==+page.user_type)">
+                <h2 class="title-divider">
+                    <span>{{page.title}}</span>
+                    <small>{{page.subtitle}}</small>
+                </h2>
+                <ng-include src="page.template"></ng-include>
+            </div>
+
+
+            <!--<div class="col-md-9 mainForm" ng-if="activePage==1">-->
+            <!--<h2 class="title-divider">-->
+            <!--<span>预定单</span>-->
+            <!--<small>查看我的预定单</small>-->
+            <!--</h2>-->
+            <!--<ng-include src="'templates/pages/index/memberCenter/fillInInfo.html'"></ng-include>-->
+            <!--</div>-->
+
+
+            <!--<div class="col-md-9 mainForm" ng-if="activePage==2">-->
+            <!--<h2 class="title-divider">-->
+            <!--<span>交易单</span>-->
+            <!--<small>查看我的交易单</small>-->
+            <!--</h2>-->
+            <!--<ng-include src="'templates/pages/index/memberCenter/fillInInfo.html'"></ng-include>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>

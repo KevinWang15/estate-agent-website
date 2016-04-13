@@ -1,0 +1,60 @@
+<div class="content page-signup">
+    <div class="container">
+        <form class="form-login form-wrapper form-medium" role="form">
+            <h3 class="title-divider">
+                <span>注册</span>
+                <small>已经注册? <a ui-sref="index.login">点击登入</a></small>
+            </h3>
+
+            <div class="form-group" style="position: relative">
+                <label for="signup-mobile">手机号</label>
+                <input type="text" class="form-control" id="signup-mobile" ng-model="formData.mobile"
+                       placeholder="您的手机号">
+            </div>
+            <div class="form-group">
+                <label for="signup-password">密码</label>
+                <input type="password" class="form-control" id="signup-password" ng-model="formData.password"
+                       placeholder="您的密码">
+            </div>
+            <div class="form-group">
+                <label for="signup-password-repeat">确认密码</label>
+                <input type="password" class="form-control" id="signup-password-repeat"
+                       ng-model="formData.passwordRepeat" placeholder="重新输入您的密码">
+            </div>
+            <div class="form-group">
+                <label for="signup-name">姓名</label>
+                <input type="text" class="form-control" id="signup-name" ng-model="formData.name" placeholder="您的姓名">
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email地址</label>
+                <input type="text" class="form-control" id="signup-email" ng-model="formData.email"
+                       placeholder="您的Email地址">
+            </div>
+
+            <div class="form-group">
+                <label for="signup-email">账户类型</label>
+                <div>
+                    <div class="radio" style="display: inline-block">
+                        <label>
+                            <input type="radio" ng-model="formData.user_type" value="0"/>
+                            普通用户
+                        </label>
+                    </div>
+                    <div class="radio" style="display: inline-block;margin-left: 50px;">
+                        <label>
+                            <input type="radio" ng-model="formData.user_type" value="1"/>
+                            房产提供方
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="1" ng-model="formData.termsAccepted">
+                    我已经阅读并同意<a target="_blank" onclick="alert('Ahhhhh..')">服务条款</a>.
+                </label>
+            </div>
+            <button class="btn btn-primary" ng-click="submit()">注册</button>
+        </form>
+    </div>
+</div>

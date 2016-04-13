@@ -1,0 +1,105 @@
+<div class="content page-welcome">
+    <div class="container">
+        <div class="block" ng-if="recommended.length>0">
+
+            <h2 class="title-divider" style="position: relative">
+                <span><span class="de-em">随机</span>推荐</span>
+                <button style="position: absolute;right: 10px" class="btn btn-primary-outline"
+                        ng-click="refreshRecommendation()">
+                    <i class="fa fa-refresh"></i> 换一批
+                </button>
+            </h2>
+            <div class="row" >
+                <div ng-repeat="rec in recommended" class="recommendation-wrapper col col-sm-4"
+                     ui-sref="index.estate-detail({id:rec.id})">
+                    <h1>
+                        {{rec.city}} {{rec.district}},
+                        <small>{{rec.condition}}</small>
+
+                    </h1>
+                    <p class="description">
+                        {{rec.description}}
+                    </p>
+                    <p>{{rec.city}} {{rec.district}} {{rec.zone}} {{rec.neighborhood}} {{rec.room}}</p>
+                    <p class="price">
+                        {{["售价","月租"][+rec.is_for_rent]}}
+
+                        <span class="currency" ng-bind-html="rec.price|humanize_price"></span>
+                    </p>
+                </div>
+                <div class="view-all col col-sm-4" ui-sref="index.estate-list()">
+                    <h1 style="text-align: center;margin-top: 75px;">
+                            <span>
+                            查看所有
+
+                            </span>
+                        <i class="fa fa-chevron-right" style="font-size: 70px;"></i>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="block features">
+            <h2 class="title-divider">
+                <span><span class="de-em">平台</span>特色</span>
+            </h2>
+            <div class="row">
+                <div class="feature col-sm-6 col-md-3">
+                    <a>
+                        <img src="http://7xr6qu.com1.z0.glb.clouddn.com/special1_1.jpg" style="width: 100%;"
+                             class=" feature-image"/>
+                    </a>
+                    <h3 class="title">
+                        <a>超快响应速度</a>
+                    </h3>
+                    <p>2天内安排看房！Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam delectus
+                        deserunt eius error facere fugit iusto</p>
+                </div>
+                <div class="feature col-sm-6 col-md-3">
+                    <a>
+                        <img src="http://7xr6qu.com1.z0.glb.clouddn.com/special1_2.jpg" style="width: 100%;"
+                             class=" feature-image"/>
+                    </a>
+                    <h3 class="title">
+                        <a>专业买房顾问</a>
+                    </h3>
+                    <p>精准定位最适合您的房产。Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam
+                        delectus deserunt eius error facere fugit iusto</p>
+                </div>
+                <div class="feature col-sm-6 col-md-3">
+                    <a>
+                        <img src="http://7xr6qu.com1.z0.glb.clouddn.com/special1_3.jpg" style="width: 100%;"
+                             class=" feature-image"/>
+                    </a>
+                    <h3 class="title">
+                        <a>信息真实可靠</a>
+                    </h3>
+                    <p>所有房产均经过严格审核，质量过关。Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam
+                        delectus deserunt eius error facere fugit iusto</p>
+                </div>
+                <div class="feature col-sm-6 col-md-3">
+                    <a>
+                        <img src="http://7xr6qu.com1.z0.glb.clouddn.com/special1_4.jpg" style="width: 100%;"
+                             class=" feature-image"/>
+                    </a>
+                    <h3 class="title">
+                        <a>专业售后服务</a>
+                    </h3>
+                    <p>成交后仍然享受售后服务。Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam
+                        delectus deserunt eius error facere fugit iusto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content-below" class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="upsell">
+                <small class="muted">心动不如行动，还不快点来买房？</small>
+                <a ui-sref="index.companies-form" class="btn btn-primary">
+                    立刻注册 <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div ng-controller="AccountInfoController">
+    <!--<pre>-->
+    <!--{{$window.user|json}}-->
+    <!--</pre>-->
+
+    <div ng-if="+$window.user.user_type==1">
+        <p ng-if="!$window.user.seller.verified" class="alert-warning alert">
+            <i class="fa fa-exclamation"></i> 房产提供者资质待认证，请联系中介进行认证
+        </p>
+        <p ng-if="$window.user.seller.verified" class="alert-success alert">
+            <i class="fa fa-check"></i> 房产提供者资质已认证
+        </p>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <td>
+                用户名
+            </td>
+            <td>
+                {{$window.user.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                手机号
+            </td>
+            <td>
+                {{$window.user.mobile}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>
+                {{$window.user.email}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                账号类型
+            </td>
+            <td>
+                {{['普通用户','房产提供者','中介'][+$window.user.user_type]}}
+            </td>
+        </tr>
+        <tr ng-if="!!$window.user.seller">
+            <td>
+                唯一编号
+            </td>
+            <td>
+                {{$window.user.seller.id_card_num}}
+            </td>
+        </tr>
+    </table>
+</div>

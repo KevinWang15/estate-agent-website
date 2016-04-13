@@ -1,0 +1,95 @@
+<div ng-controller="AgentOrdersController" class="page-agent-orders">
+    <div ng-if="list.length==0"
+         style="color:#C00;padding: 50px 10px;border:2px solid; border-radius:20px;margin:10px 4px;font-size: 30px;text-align: center;line-height: 1.5em">
+        您还没有任何交易单
+    </div>
+
+    <div ng-repeat="item in list" class="item-wrapper row">
+        <div class="col col-xs-3" style="text-align: center;">
+            <img style="width: 85%;margin: 10px;"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 ng-src="img/estates/{{item.estate_id%6+1}}.jpg" alt="">
+        </div>
+        <div class="col col-xs-9" style="position: relative">
+            <!--{{item}}-->
+            <p class="emphasize" style="font-size: 20px;">
+                预订单状态：
+                {{
+                {'0':'等待买家向卖家付房款','1':'已付房款，等待卖家交货','2':'卖家已发货，等待买家确认','3':'交易成功'}[item.order_state]
+                }}
+            </p>
+            <p style="margin-top: 10px;">
+                房产信息：{{item.estate.city}} {{item.estate.district}} {{item.estate.zone}} {{item.estate.neighborhood}}
+                {{item.estate.room}} （{{item.estate.condition}}）
+                <br/>
+                {{item.estate.description}}
+            </p>
+
+
+            <div class="row">
+                <div class="col col-xs-6">
+                    <p style="margin-bottom: 0;">
+                <span>
+                卖家：
+                </span>
+
+                        <img style="width: 70%;border-radius: 50%;margin: 10px;width: 40px;"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                             ng-src="img/avatars/{{(item.seller.user.id % 12)+1}}.jpg" alt="">
+
+                <span>
+                    {{item.seller.user.name}}
+                </span>
+                    </p>
+                </div>
+                <div class="col col-xs-6">
+                    <p style="margin-top: 19px;">
+                        卖家电话：{{item.seller.user.mobile}}
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col col-xs-6">
+                    <p style="margin-bottom: 0;">
+                <span>
+                买家：
+                </span>
+
+                        <img style="width: 70%;border-radius: 50%;margin: 10px;width: 40px;"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                             ng-src="img/avatars/{{(item.buyer_id % 12)+1}}.jpg" alt="">
+
+                <span>
+                    {{item.buyer.user.name}}
+                </span>
+                        {{item.email}}
+                    </p>
+                </div>
+
+                <div class="col col-xs-6">
+                    <p style="margin-top: 19px;">
+                        买家电话：{{item.buyer.user.mobile}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: right;">
+            <p class="price" style="margin-top: 1px;">
+                {{["售价","月租"][+item.estate.is_for_rent]}}：
+                                        <span class="currency" ng-bind-html="item.estate.price|humanize_price">
+                                        </span>
+            </p>
+        </div>
+    </div>
+
+    <uib-pagination ng-hide="list==null || list.length==0" ng-change="pageChanged()"
+                    items-per-page="6"
+                    boundary-links="false" boundary-link-numbers="true" total-items="totalItems"
+                    ng-model="currentPage" class="pagination-sm" rotate="true" max-size="12"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                    last-text="&raquo;">
+    </uib-pagination>
+</div>
